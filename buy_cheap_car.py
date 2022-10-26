@@ -2,7 +2,7 @@ import pyautogui
 import time
 import sys
 pyautogui.FAILSAFE = False
-time.sleep(3) #3 seconds to nav back to forza's autoshop after kicking off script
+
 nav_to_20k_car = [
     'x', 'down', 'down', 'down', '\n', 'backspace', 'up', '\n',
 ]
@@ -16,6 +16,7 @@ reset = [
     'Esc', '\n'
 ]
 def main():
+    time.sleep(3) #3 seconds to nav back to forza's autoshop after kicking off script
     num_cars = 100
     if len(sys.argv) > 1:       
         num_cars = sys.argv[1]
@@ -23,7 +24,7 @@ def main():
 
 def purchase(cars):
     for car in range(int(cars)):
-        print('starting to buy car#', car)
+        print('starting to buy car#', car+1)
         pyautogui.typewrite(nav_to_20k_car, interval=.85)
         print('naved to')
         pyautogui.typewrite(buy_car, interval=2.5)
